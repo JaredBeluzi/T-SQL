@@ -25,7 +25,7 @@ SELECT * FROM
 (
 	SELECT -- the order of columns in this select does not matter
 		diagnosis_year	-- contains column names for pivot
-	,	ICD_group				-- contains rows
+	,	ICD_group	-- contains rows
 	,	person          -- contains values, that will be aggregated
 	FROM	dbo.ICD
 ) t 
@@ -53,10 +53,10 @@ SELECT * FROM
 (
 	SELECT -- the order of columns in this select does not matter
 		col1	-- contains column names for pivot
-  ,	col2  -- contains values, that will be aggregated
+  	,	col2    -- contains values, that will be aggregated
 	,	col3	-- contains rows
-  , col4 
-  , ... -- if you include more columns they will all be used to determine the rows
+  	,	col4 
+  	, ... -- if you include more columns they will all be used to determine the rows
 	FROM	dbo.table_name
 ) t 
 PIVOT(
@@ -64,6 +64,6 @@ PIVOT(
     FOR col1 IN (
 			[value1] -- you have to put every value in []
 		,	[value2]
-    , ...      -- you can use more than 2 values
+    		, ...      	 -- you can use more than 2 values
 		)
 ) AS pivot_table;
