@@ -48,8 +48,8 @@ FROM
 (
 	SELECT 
 		diagnosis_year	-- contains column names for pivot
-	,	ICD_group	      -- contains rows
-	,	person          -- contains values, that will be aggregated
+	,	ICD_group	-- contains rows
+	,	person		-- contains values, that will be aggregated
 	FROM	dbo.ICD
 ) t 
 PIVOT(
