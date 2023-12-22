@@ -1,4 +1,10 @@
--- Example
+-- 0. What does it do?
+/*
+This SQL creates an empty table with columns.
+*/
+
+
+-- 1. Example
 
 CREATE TABLE dbo.fruits (
     name VarChar(100)
@@ -7,7 +13,7 @@ CREATE TABLE dbo.fruits (
 )
 
 
--- General
+-- 2. General
 
 CREATE TABLE table_name (
     column1 datatype
