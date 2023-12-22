@@ -35,7 +35,7 @@ PIVOT(
 			[2030] -- you have to put every value in []
 		,	[2031]
 		)
-) AS pivot_table;
+) AS pivot_table
 
 -- The result will look like this:
 /*
@@ -66,4 +66,4 @@ PIVOT(
 		,	[value2]
     		, ...      	 -- you can use more than 2 values
 		)
-) AS pivot_table;
+) AS pivot_table
