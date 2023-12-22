@@ -1,4 +1,11 @@
--- Example
+-- 0. What does it do?
+
+/*
+This SQL shows how to execute text as SQL.
+*/
+
+
+-- 1. Example
 
 DECLARE @sql VarChar(Max) -- create Text Variable
 SET @sql =  -- fill Text Variable with code, that you want to execute
@@ -10,7 +17,8 @@ FROM dbo.TT_v
 
 EXEC(@sql) -- execute code
 
--- General
+  
+-- 2. General
 
 DECLARE @sql VarChar(Max) -- create Text Variable
 SET @sql =  -- fill Text Variable with code, that you want to execute
