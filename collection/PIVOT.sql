@@ -1,3 +1,10 @@
+-- 0. What does it do?
+
+/*
+This SQL shows how to create a pivot table.
+*/
+
+
 -- 1. Example
 
 -- Suppose we have a table dbo.ICD, that looks like this:
@@ -38,6 +45,7 @@ F            2       0
 G            1       2
 H            0       2
 */
+
 
 -- 2. General
 
