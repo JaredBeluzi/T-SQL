@@ -21,7 +21,12 @@ JoJo          H            2031
 */
 -- Then the following SQL will do a pivot on the years 2030, 2031 for each ICD_group
 
-SELECT * FROM   
+SELECT
+	ICG_group
+,	[2030]
+,	[2031]
+INTO	dbo.results
+FROM   
 (
 	SELECT -- the order of columns in this select does not matter
 		diagnosis_year	-- contains column names for pivot
@@ -49,7 +54,9 @@ H            0       2
 
 -- 2. General
 
-SELECT * FROM   
+SELECT * 
+INTO dbo.results
+FROM   
 (
 	SELECT -- the order of columns in this select does not matter
 		col1	-- contains column names for pivot
