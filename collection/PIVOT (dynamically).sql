@@ -100,9 +100,9 @@ INTO	dbo.results
 FROM  
 (
 	SELECT 
-		  col1	-- contains column names for pivot
+		col1  -- contains column names for pivot
   	,	col2  -- contains values, that will be aggregated
-	  ,	col3	-- contains rows
+	,	col3  -- contains rows
   	,	col4 
   	, ... -- if you include more columns they will all be used to determine the rows
 	FROM	dbo.table_name
