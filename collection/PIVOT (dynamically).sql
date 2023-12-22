@@ -36,7 +36,7 @@ SELECT TOP 1
 				FROM dbo.ICD
 				FOR XML PATH('')) -- puts all values into a string one after another
 				,1,1,'')          -- removes the first comma
-FROM dbo.ICD);
+FROM dbo.ICD)
 -- The result is @col_list = '[2030], [2031]'
 
 -- write dynamic SQL
@@ -90,7 +90,7 @@ SELECT TOP 1
 				FROM dbo.table_name
 				FOR XML PATH('')) -- puts all values into a string one after another
 				,1,1,'')          -- removes the first comma
-FROM dbo.table_name);
+FROM dbo.table_name)
 
 -- write dynamic SQL
 
