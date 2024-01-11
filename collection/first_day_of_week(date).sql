@@ -1,29 +1,22 @@
 -- 0. What does it do?
 
 /*
-This SQL shows how to execute text as SQL.
+This SQL shows how to get the fist day of the week of a date column.
 */
 
 
 -- 1. Example
 
-DECLARE @sql VarChar(Max) -- create Text Variable
-SET @sql =  -- fill Text Variable with code, that you want to execute
-'
-SELECT *
-INTO dbo.ES_1010
-FROM dbo.TT_v
-'
+SELECT
+  payment_date
+, DATEADD(WEEK, DATEDIFF(DAY, '01.01.1900', payment_date)/7, '01.01.1900') AS payment_week_begin
+FROM dbo.payments
 
-EXEC(@sql) -- execute code
 
   
 -- 2. General
 
-DECLARE @sql VarChar(Max) -- create Text Variable
-SET @sql =  -- fill Text Variable with code, that you want to execute
-'
-...
-'
-
-EXEC(@sql) -- execute code
+SELECT
+  date_col
+, DATEADD(WEEK, DATEDIFF(DAY, '01.01.1900', date_col)/7, '01.01.1900') AS week_begin
+FROM dbo.[table]
