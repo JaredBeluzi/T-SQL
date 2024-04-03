@@ -28,10 +28,10 @@ FROM
   ,	Person.Vorname AS Person_Vorname
   ,	Person.Nachname AS Person_Nachname
 	,	RANK() OVER ( PARTITION BY Unternehmen.Unternehmen_ID ORDER BY 	
-                      Person.Beitrittsdatum ASC
-										,	Person.Kündigungsdatum DESC
-										,	Person.Hierarchie DESC
-										,	Person.Person_ID DESC) AS RANKING
+        		Person.Beitrittsdatum ASC
+		,	Person.Kündigungsdatum DESC
+		,	Person.Hierarchie DESC
+		,	Person.Person_ID DESC) AS RANKING
 	-- try to use as many meaningful columns to rank
 	-- as last step use a column that ensures the uniqueness of rank 1 (often an ID col)	
 	FROM dbo.Unternehmen AS Unternehmen
