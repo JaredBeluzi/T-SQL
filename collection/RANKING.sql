@@ -14,29 +14,29 @@ Application examples:
 
 SELECT
 	SUB.Unternehmen_ID
-, SUB.Unternehmen_Bezeichnung
+,	SUB.Unternehmen_Bezeichnung
 ,	SUB.Person_ID
 ,	SUB.Person_Vorname
 ,	SUB.Person_Nachname
 INTO	dbo.längster_Mitarbeiter
 FROM
 (
-	SELECT 
-    Unternehmen.Unternehmen_ID
-  , Unternehmen.Bezeichnung AS Unternehmen_Bezeichnung
-  ,	Unternehmen.Person_ID
-  ,	Person.Vorname AS Person_Vorname
-  ,	Person.Nachname AS Person_Nachname
-	,	RANK() OVER ( PARTITION BY Unternehmen.Unternehmen_ID ORDER BY 	
-        		Person.Beitrittsdatum ASC
-		,	Person.Kündigungsdatum DESC
-		,	Person.Hierarchie DESC
-		,	Person.Person_ID DESC) AS RANKING
+SELECT 
+	Unternehmen.Unternehmen_ID
+	Unternehmen.Bezeichnung AS Unternehmen_Bezeichnung
+,	Unternehmen.Person_ID
+,	Person.Vorname AS Person_Vorname
+,	Person.Nachname AS Person_Nachname
+,	RANK() OVER ( PARTITION BY Unternehmen.Unternehmen_ID ORDER BY 	
+        	Person.Beitrittsdatum ASC
+	,	Person.Kündigungsdatum DESC
+	,	Person.Hierarchie DESC
+	,	Person.Person_ID DESC) AS RANKING
 	-- try to use as many meaningful columns to rank
 	-- as last step use a column that ensures the uniqueness of rank 1 (often an ID col)	
-	FROM dbo.Unternehmen AS Unternehmen
-	INNER JOIN	dbo.Person AS Person
-	  ON	Unternehmen.Unternehmen_ID = Person.Unternehmen_ID
-  WHERE Person.StornoKZ = 0
+FROM dbo.Unternehmen AS Unternehmen
+INNER JOIN	dbo.Person AS Person
+	ON	Unternehmen.Unternehmen_ID = Person.Unternehmen_ID
+WHERE Person.StornoKZ = 0
 ) AS SUB
 WHERE SUB.RANKING = 1
