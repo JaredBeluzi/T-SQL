@@ -1,26 +1,6 @@
--- 0. What does it do?
+ALTER TABLE dbo.Tabelle
+ADD PRIMARY KEY (Spalte)
 
-/*
-This SQL creates a Primary Key on a table.
-*/
-
-
--- 1. Example
-
-ALTER TABLE dbo.fruits
-ADD PRIMARY KEY (name)
-
-  
--- 2. General
-
-ALTER TABLE table_name
-ADD PRIMARY KEY (column_name)
-
-
--- 3. Hint
-
--- It is necessary for column_name to not allow NULL values.
--- You can do this with the following SQL
-
-ALTER TABLE table_name
-ALTER COLUMN column_name DataType NOT NULL -- DataType should be the same as before
+-- Hinweis: NULL Werte in Spalte sind nicht erlaubt. Das kann man so erreichen:
+ALTER TABLE dbo.Tabelle
+ALTER COLUMN Spalte Datentyp NOT NULL -- Datentyp sollte derselbe sein wie zuvor
