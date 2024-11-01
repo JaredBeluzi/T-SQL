@@ -18,7 +18,7 @@ SELECT
 ,	RANK() OVER ( PARTITION BY Groß.Groß_ID ORDER BY klein.klein_ID ASC) AS klein_RANKING
 ,	RANK() OVER ( PARTITION BY klein.klein_ID ORDER BY Groß.Groß_ID ASC) AS Groß_RANKING
 INTO	  dbo.Zuordnung
-FROM		    dbo.Groß AS Groß
+FROM		dbo.Groß AS Groß
 INNER JOIN	dbo.klein AS klein
     ON Groß.Groß_Name = klein.klein_Name
 
