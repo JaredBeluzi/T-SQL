@@ -1,51 +1,17 @@
--- 0. What does it do?
-/*
-This SQL shows how to create dynamic SQLs, i.e. executing SQL that depends on a value that can change on every execution.
-This is often done by using variables inside the SQL that gets executed by the function EXEC().
-*/
 
+-- ein dynamischer SQL ermöglicht es Variablen innerhalb eines SQL Codes zu verwenden (z.B. für Loops)
 
--- 1. Example
+-- Die Variable @max_date beinhaltet das Maximum aus der Spalte Datum in ES_51860 + 30 Tage
+DECLARE	@Max_Datum AS DateTime
+SELECT @Max_Datum = DATEADD(day, 30, MAX(Datum)) FROM dbo.ES_51860
 
--- The variable @max_date contains the maximum of control_date in dbo.ES_51860 plus 30 days
--- This value can change on every execution of this SQL
-DECLARE	@max_date AS DateTime
-SELECT @max_date = DATEADD(day, 30, MAX(control_Date))
-FROM	dbo.ES_51860
-
-DECLARE @sql VarChar(Max) -- create Text Variable
-SET @sql =  -- fill Text Variable with code, that you want to execute
+DECLARE @sql VarChar(Max) -- Textvariable erstellen
+SET @sql = -- Code in Textvariable schreiben
 '
 SELECT *
 INTO dbo.ES_1010
 FROM dbo.ST_vz
-WHERE pay_date <= ' + @max_date + '
+WHERE vz_Datum <= ' + @Max_Datum + '
 '
 
-EXEC(@sql) -- execute code
-
-  
--- 2. General
-
--- in general you want to replace some parts of the text in @sql with values from variables (or other text-producing SQL-snippets)
-
-DECLARE @sql_part1
-DECLARE @sql_part2
-...
-
-SET @sql_part1 = ... -- Determine value of variable
-SET @sql_part2 = ... -- Determine value of variable
-...
-
--- replace parts of code in @sql with variables 
-DECLARE @sql VarChar(Max) -- create Text Variable
-SET @sql =  -- fill Text Variable with code, that you want to execute
-'
-SELECT 
-...
-... ' + sql_part1 + '
-... ' + sql_part2 + '
-...
-'
-
-EXEC(@sql) -- execute code
+EXEC(@sql)-- Code in Textvariable ausführen
