@@ -8,6 +8,7 @@ A        Alex         a         Alex               A        a
 B        Alex         b         Alex               B        b
 C        Max          c         Max                C        c
 D        Max          d         Max                D        d
+E	 Max          e		Max	           E        e
 
 Man weiß hier, dass v und w zu a und b gehören, aber nicht genau wie. Das ist aber auch egal. Man will sie random zuordnen und alle IDs verwenden. Deshalb ist das Ziel hier Tabelle 3.
 */
@@ -33,9 +34,14 @@ A        a         1             1                 A        a         1         
 A        b         1             2                 B        b         2             2
 B        a         2             1                 C        c         1             1
 B        b         2             2                 D        d         2             2
-C        c         1             1
+C        c         1             1                 E        e         3             3
 C        d         1             2
+C        e         1             3
 D        c         2             1
 D        d         2             2
+D        e         2             3
+E        c         3             1
+E        d         3             2
+E        e         3             3
 
 */
