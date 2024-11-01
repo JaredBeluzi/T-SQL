@@ -1,30 +1,11 @@
--- 0. What does it do?
 
-/*
-This SQL shows how you can insert values manually into a table.
-*/
+-- Code fügt manuell Zeilen in Tabelle hinzu
 
-
--- 1. Example
-
-INSERT INTO dbo.people (
-    name
-,   surname
-) -- you should mention every column here to avoid issues with the wrong order of columns
+INSERT INTO dbo.Namen (
+    Vorname
+,   Nachname
+) -- Hier oben alle Spalten explizit nennen. Sonst kann Spaltenreihenfolge durcheinander kommen beim Befüllen der Spalten.
 VALUES
   ('Peter', 'Arndt')
 , ('Luisa', 'Scharafinski')
 , ('Robert', 'Ullrich')
-
-
--- 2. General
-
-INSERT INTO dbo.table_name (
-    column1
-,   column2
-...
-) -- you should mention every column here to avoid issues with the wrong order of columns
-VALUES
-  ('val1_1', 'val2_1', ...)
-, ('val1_2', 'val2_2', ...)
-...
