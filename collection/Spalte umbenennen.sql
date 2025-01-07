@@ -1,1 +1,1 @@
-sp_rename 'dbo.Tabelle.alter_Spaltenname' , 'neuer_Spaltenname' , 'COLUMN'
+EXEC sp_rename 'dbo.Tabelle.alter_Spaltenname' , 'neuer_Spaltenname' , 'COLUMN';
